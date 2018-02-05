@@ -1,0 +1,24 @@
+<div class="play-and-download-container">
+    {{icon-button
+        buttonIcon="play_circle_outline"
+        class="play-button"
+        disabled=isPlayAndSaveButtonDisabled
+        onClick=(action play)
+    }}
+    {{icon-button
+        buttonIcon="file_download"
+        class="download-button"
+        disabled=isPlayAndSaveButtonDisabled
+        onClick=(action downloadRecord)
+    }}
+</div>
+<div class="recode-conteiner">
+    <div class="spinner" {{action toggleRecord}}>
+        <div class="spinnerborder">
+            {{icon-button
+                buttonIcon=buttonIcon
+                class="recode-button"
+            }}
+        </div>
+    </div>
+</div>

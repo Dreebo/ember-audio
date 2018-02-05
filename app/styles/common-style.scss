@@ -1,0 +1,12 @@
+.ember-application {
+    margin: 0;
+}
+
+@mixin font-family-proxima-nova {
+    font-family: "Proxima Nova";
+}
+
+@mixin font-proxima-nova-regular($font-size: 12px) {
+    @include font-family-proxima-nova;
+    font-size: $font-size;
+}

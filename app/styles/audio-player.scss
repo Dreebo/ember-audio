@@ -1,0 +1,14 @@
+.audio-player {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    border-top: none;
+    border-color:  $e-audio-gray;
+    border-radius: 3px;
+    padding: 25px;
+    width: 600px;
+
+    .truncated-label {
+        padding: 0 0 10px 10px;
+    }
+}

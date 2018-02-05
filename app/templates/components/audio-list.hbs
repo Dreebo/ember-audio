@@ -1,0 +1,24 @@
+
+{{#file-drop
+        file=attachment
+        onChange=(action sendFile)
+}}
+    <div class="file-loader">
+        {{t 'openFile'}}
+    </div>
+{{/file-drop}}
+<div class="player-and-recorder-wrapper">
+    {{audio-player
+        songName=currentSongName
+        audios=audios
+    }}
+</div>
+<div class="audio-items">
+    {{#each audios as |audio|}}
+        <div class="audio-item-wrapper {{if audio.isPlaying "visible" "invisible"}}" {{action "play" audio}}>
+            {{material-icon audio.icon class="pause-icon"}}
+            <div class="audio-item">{{audio.name}}</div>
+        </div>
+        <hr class="line">
+    {{/each}}
+</div>

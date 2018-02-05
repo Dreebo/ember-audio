@@ -1,0 +1,12 @@
+{{icon-button
+    onClick=(action playAll)
+    buttonIcon="playlist_play"
+    title=(t 'playAll')
+}}
+{{truncated-label label=songName}}
+<div class="audio-control">
+    {{position-control 
+        disabled=disabled
+    }}
+    {{volume-control}}
+</div>

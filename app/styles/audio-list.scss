@@ -1,0 +1,56 @@
+.audio-list {
+    display: flex;
+    flex-direction: column;
+
+    .audio-items {
+        display: flex;
+        flex-direction: column;
+
+        .audio-item-wrapper {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            .pause-icon {
+                margin-right: 10px;
+                opacity: 0.8;
+            }
+
+            &:hover {
+                .pause-icon {
+                    visibility: visible !important;
+                }
+            }
+
+            &.invisible .pause-icon {
+                visibility: hidden;
+            }
+
+            &.visible .pause-icon {
+                visibility: visible;
+            }
+        }
+
+        .line {
+            margin: 5px 35px;
+            background-image: linear-gradient(90deg, $e-audio-red, transparent);
+            border: 0;
+            height: 1px;
+        }
+    }
+
+    .player-and-recorder-wrapper {
+        display: flex;
+    }
+
+    .file-drop {
+        width: 100%;
+
+        .file-loader {
+            border: 1px solid;
+            border-color: $e-audio-gray;
+            border-radius: 3px;
+            padding: 25px;
+        }
+    } 
+}

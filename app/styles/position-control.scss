@@ -1,0 +1,27 @@
+.position-control {
+    display: flex;
+
+    .position-slider {
+        -webkit-appearance: none;
+        width: 500px;
+        outline: none;
+
+        &::-webkit-slider-runnable-track {
+            height: 1px;
+            background: $e-audio-gray-a1;
+            border: none;
+            border-radius: 3px;
+        }
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            margin-top: -6px;
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            background-color: $e-audio-white;
+            border: 2px solid $e-audio-black;
+            cursor: pointer;
+        }
+    }
+}

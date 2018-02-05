@@ -1,0 +1,6 @@
+.w-header {
+    @include font-proxima-nova-regular(52px);
+    padding: 10px;
+    text-align: right;
+    background-color: $e-audio-red;
+}

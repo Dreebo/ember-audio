@@ -1,0 +1,15 @@
+.icon-button {
+    display: flex;
+    justify-content: flex-end;
+    
+    .button {
+        @include font-proxima-nova-regular(14px);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $e-audio-white;
+        border: none;
+        outline: 0; 
+    }
+}
