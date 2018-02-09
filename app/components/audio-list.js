@@ -8,7 +8,6 @@ export default Component.extend({
     hifi: service(),
     audios: null,
     currentSoundName: null,
-    idSound: null,
 
     sendFile(file) {        
         const regexp = new RegExp(this.get('consts.allowMP3AndWAVFormatRegexp'));
@@ -32,9 +31,8 @@ export default Component.extend({
         this.get('audios').pushObject(newSound);
     },
 
-    updateCurrentSound(name, id) {
+    updateCurrentSound(name) {
         this.set('currentSoundName', name);
-        this.set('idSound', id);
     },
 
     actions: {

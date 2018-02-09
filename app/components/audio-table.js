@@ -31,7 +31,7 @@ export default Component.extend({
             }
             
             this.updateAllAudios(audio);
-            this.updateCurrentSound(audio.name, audio.id);
+            this.updateCurrentSound(audio.name);
         }    
     }
 });
