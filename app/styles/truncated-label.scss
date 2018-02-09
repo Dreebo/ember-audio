@@ -1,5 +1,6 @@
 .truncated-label {
-    width: 100%;
+    @include font-optima-regular(15px);
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

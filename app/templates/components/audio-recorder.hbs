@@ -1,24 +1,36 @@
-<div class="play-and-download-container">
-    {{icon-button
-        buttonIcon="play_circle_outline"
-        class="play-button"
-        disabled=isPlayAndSaveButtonDisabled
-        onClick=(action play)
-    }}
-    {{icon-button
-        buttonIcon="file_download"
-        class="download-button"
-        disabled=isPlayAndSaveButtonDisabled
-        onClick=(action downloadRecord)
-    }}
-</div>
-<div class="recode-conteiner">
-    <div class="spinner" {{action toggleRecord}}>
-        <div class="spinnerborder">
-            {{icon-button
-                buttonIcon=buttonIcon
-                class="recode-button"
-            }}
+<div class="audio-recorder-wrapper">
+    <div class="play-and-download-container">
+        {{icon-button
+            buttonIcon="play_circle_outline"
+            class="play-button"
+            disabled=isPlayButtonDisabled
+            onClick=(action play)
+        }}
+    </div>
+    <div class="recode-conteiner">
+        <div class="spinner cursor-pointer" {{action toggleRecord}}>
+            <div class="spinnerborder">
+                {{icon-button
+                    buttonIcon=buttonIcon
+                    class="recode-button"
+                }}
+            </div>
         </div>
     </div>
+    <div class="play-and-download-container">
+        {{icon-button
+            buttonIcon="file_download"
+            class="download-button"
+            disabled=isSaveButtonDisabled
+            onClick=(pipe-action (action downloadRecord) (action clearNameRecord))
+        }}
+    </div>
+</div>
+<div class="ui input">
+    {{input
+        disabled=isPlayButtonDisabled 
+        class="record-name" 
+        placeholder=(t 'recordPlaceholder')
+        value=recordName
+    }}
 </div>

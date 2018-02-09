@@ -1,6 +1,10 @@
 import Controller from '@ember/controller';
+import $ from 'jquery';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
+    consts: service(),
+    'api-request': service(),
     isRecordedAudioExists: false,
 
     toggleRecord() {
@@ -8,9 +12,11 @@ export default Controller.extend({
     },
 
     async downloadRecord() {
-        const { audioURL, base64, blob } = await this.get('recorder').getAudio();
+        const { base64 } = await this.get('recorder').getAudio();
+        const recordName = $('.record-name').val();
 
-        //should be request to save record.
+        //await this.get('api-request').saveSound({ name: recordName, url: base64 });
+        this.addRecordToModel(recordName, base64);
     },
 
     async record() {
@@ -29,5 +35,15 @@ export default Controller.extend({
         recorder.stopRecording();
         recorder.close();
         this.set('isRecordedAudioExists', true);
+    },
+
+    addRecordToModel(name, url) {
+        const newSound = {
+            name,
+            url,
+            isPlaying: false,
+            icon: this.get('consts.materialIcon.play')
+        }
+        this.get('model').pushObject(newSound);
     }
 });

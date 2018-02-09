@@ -1,40 +1,53 @@
 import Component from '@ember/component';
-import { set, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default Component.extend({
+    'api-request': service(),
     classNames: ['audio-list'],
-    hifi: service(),
     consts: service(),
+    hifi: service(),
     audios: null,
-    currentSongName: null,
+    currentSoundName: null,
+    idSound: null,
 
     sendFile(file) {        
         const regexp = new RegExp(this.get('consts.allowMP3AndWAVFormatRegexp'));
         if (regexp.test(file.name)) {
-            //TODO: should be request to server for save.
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const audioUrl = reader.result;
+                this.addRecordToModel(file.name, audioUrl);
+            }
+            reader.readAsDataURL(file);
         }
     },
 
-    updateAllAudios(audio) {
-        (this.get('audios') || []).forEach(audio => {
-            set(audio, 'isPlaying', false);  
-            set(audio, 'icon', this.get('consts.materialIcon.play')); 
-        });
+    addRecordToModel(name, url) {
+        const newSound = {
+            name,
+            url,
+            isPlaying: false,
+            icon: this.get('consts.materialIcon.play')
+        }
+        this.get('audios').pushObject(newSound);
+    },
 
-        set(audio, 'isPlaying', true);
-        set(audio, 'icon', this.get('consts.materialIcon.pause'));
+    updateCurrentSound(name, id) {
+        this.set('currentSoundName', name);
+        this.set('idSound', id);
     },
 
     actions: {
-        play(audio) {
-            this.get('hifi').play(audio.url);
-            if (this.get('hifi.isPlaying')) {
-                this.get('hifi').rewind(this.get('hifi.currentSound.duration'));
+        async recognize() {
+            const currentSound = this.get('hifi.currentSound');
+            const res = await fetch(currentSound.url);
+            const blob = await res.blob();
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const audioUrl = reader.result;
+                this.get('api-request').recognizeSound(audioUrl);
             }
-            
-            this.updateAllAudios(audio);
-            this.set('currentSongName', audio.name);
+            await reader.readAsDataURL(blob);            
         }
     }
 });

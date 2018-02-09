@@ -1,22 +1,33 @@
 .audio-recorder {
     display: flex;
     align-items: center;
+    flex-direction: column;
     padding: 10px 0;
+
+    .audio-recorder-wrapper{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+    }
+
+    .play-and-download-container {
+        margin: 0 20px;  
+        
+        .material-icons {
+            font-size: 46px;
+            cursor: pointer;
+        } 
+    }
 
     &.red-record-style {
         .spinnerborder:before {
-            border-top:4px solid $e-audio-red;
-            border-bottom:4px solid $e-audio-red;
+            border-top:4px solid $e-audio-black;
+            border-bottom:4px solid $e-audio-black;
         }
         .recode-button .button {
             color: $e-audio-red;
-        }
-    }
-
-    &.disabled-save-and-play-buttons {
-        .play-button, .download-button .button {
-            color: $e-audio-gray-a2;
-            opacity: 0.5;
         }
     }
 
@@ -37,6 +48,7 @@
         background: $e-audio-white;
         border-radius: 50%;
         position: relative;
+        box-sizing: unset;
 
         .recode-button {
             display: flex;

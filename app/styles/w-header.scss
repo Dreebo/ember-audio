@@ -1,6 +1,12 @@
 .w-header {
-    @include font-proxima-nova-regular(52px);
+    @include font-bradley-hand-regular(52px);
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     padding: 10px;
+    height: 60px;
     text-align: right;
-    background-color: $e-audio-red;
+    background-color: $e-audio-black;
+    color: $e-audio-gray;
 }

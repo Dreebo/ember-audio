@@ -1,9 +1,11 @@
-{{icon-button
-    onClick=(action playAll)
-    buttonIcon="playlist_play"
-    title=(t 'playAll')
-}}
-{{truncated-label label=songName}}
+<div class="audio-header">
+    {{truncated-label label=songName}}
+    {{icon-button
+        onClick=(action playAll)
+        buttonIcon="playlist_play"
+        title=(t 'playAll')
+    }}
+</div>
 <div class="audio-control">
     {{position-control 
         disabled=disabled

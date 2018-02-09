@@ -1,4 +1,12 @@
 {{icon-button
+    onClick=(action rewind)
+    buttonIcon=consts.materialIcon.replay_5
+}}
+{{icon-button
+    onClick=(action fastForward)
+    buttonIcon=consts.materialIcon.forward_5
+}}
+{{icon-button
     onClick=(action tooglePause)
     buttonIcon=buttonIcon
 }}
@@ -10,12 +18,4 @@
     min=0 
     max=hifi.duration 
     step=1000
-}}
-{{icon-button
-    onClick=(action rewind)
-    buttonIcon=consts.materialIcon.replay_5
-}}
-{{icon-button
-    onClick=(action fastForward)
-    buttonIcon=consts.materialIcon.forward_5
 }}

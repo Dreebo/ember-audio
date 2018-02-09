@@ -1,11 +1,13 @@
-{{w-header}}
-{{audio-recorder
-    toggleRecord=(action toggleRecord)
-    isRecording=recorder.isRecording
-    isRecordedAudioExists=isRecordedAudioExists
-    getAudioBase64=(action getAudioBase64)
-    downloadRecord=(action downloadRecord)
-}}
-{{audio-list
-    audios=model
-}}
+<div class="audio-wrapper">
+    {{w-header}}
+    {{audio-recorder
+        toggleRecord=(action toggleRecord)
+        isRecording=recorder.isRecording
+        isRecordedAudioExists=isRecordedAudioExists
+        getAudioBase64=(action getAudioBase64)
+        downloadRecord=(action downloadRecord)
+    }}
+    {{audio-list
+        audios=model
+    }}  
+</div>

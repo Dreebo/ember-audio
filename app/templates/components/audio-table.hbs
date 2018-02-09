@@ -1,0 +1,18 @@
+<table class="ui compact celled definition table margin-none-important">
+    <thead class="full-width">
+        <tr>
+        <th></th>
+        <th>{{t 'table.nameColumn'}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each audios as |audio|}}
+            <tr class="cursor-pointer">
+                <td class="collapsing" {{action "play" audio}}>
+                    {{material-icon audio.icon class="pause-icon"}}
+                </td>
+                <td {{action "play" audio}}>{{audio.name}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
