@@ -1,12 +1,13 @@
 import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('route:audio', 'Unit | Route | audio', {
-  needs: [
-    'service:recorder',
-    'service:i18n',
-    'service:consts',
-    'service:crypto'
-  ]
+    needs: [
+        'service:recorder',
+        'service:i18n',
+        'service:consts',
+        'service:crypto',
+        'service:api-request'
+    ]
 });
 
 test('decodeModel method', function(assert) {

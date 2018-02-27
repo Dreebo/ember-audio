@@ -9,14 +9,14 @@ export default Component.extend({
     audios: null,
     currentSoundName: null,
 
-    sendFile(file) {        
+    sendFile(file) {
         const regexp = new RegExp(this.get('consts.allowMP3AndWAVFormatRegexp'));
         if (regexp.test(file.name)) {
             const reader = new FileReader();
             reader.onloadend = () => {
                 const audioUrl = reader.result;
                 this.addRecordToModel(file.name, audioUrl);
-            }
+            };
             reader.readAsDataURL(file);
         }
     },
@@ -27,8 +27,8 @@ export default Component.extend({
             url,
             isPlaying: false,
             icon: this.get('consts.materialIcon.play')
-        }
-        this.get('audios').pushObject(newSound);
+        };
+        this.get('audios').unshiftObject(newSound);
     },
 
     updateCurrentSound(name) {
@@ -44,8 +44,8 @@ export default Component.extend({
             reader.onloadend = () => {
                 const audioUrl = reader.result;
                 this.get('api-request').recognizeSound(audioUrl);
-            }
-            await reader.readAsDataURL(blob);            
+            };
+            await reader.readAsDataURL(blob);
         }
     }
 });

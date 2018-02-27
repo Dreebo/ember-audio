@@ -9,7 +9,7 @@ export default Component.extend({
     consts: service(),
 
     songName: null,
-    
+
     init() {
         this._super(...arguments);
 
@@ -33,12 +33,13 @@ export default Component.extend({
         if (currentSound) {
             set(currentSound, 'icon', this.get('consts.materialIcon.play'));
         }
+
         set(nextSound, 'icon', this.get('consts.materialIcon.pause'));
     },
 
     /**
      * Property which controlled disable state of audio loader
-     * 
+     *
      * @name: disabled
      * @type: boolean
      */

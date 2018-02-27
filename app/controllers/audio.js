@@ -44,6 +44,6 @@ export default Controller.extend({
             isPlaying: false,
             icon: this.get('consts.materialIcon.play')
         }
-        this.get('model').pushObject(newSound);
+        this.get('model').unshiftObject(newSound);
     }
 });

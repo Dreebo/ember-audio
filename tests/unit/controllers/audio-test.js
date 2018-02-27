@@ -1,7 +1,10 @@
 import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('controller:audio', 'Unit | Controller | audio', {
-  needs: ['service:consts']
+  needs: [
+    'service:consts',
+    'service:api-request'
+  ]
 });
 
 // Replace this with your real tests.
